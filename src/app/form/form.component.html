@@ -1,3 +1,49 @@
-<p>
-  form works!
-</p>
+<div class="main-form"> 
+    <div *ngIf="showError">
+            <div *ngIf="(eventForm.get('email').touched || eventForm.get('email').dirty) && eventForm.get('email').errors" class="invalid-feedback f-f-r f-13">
+                    <span class="text-danger">*Please Provide a valid Email</span>
+                   </div>
+                   <div *ngIf="(eventForm.get('password').touched || eventForm.get('password').dirty) && eventForm.get('password').errors" class="invalid-feedback f-f-r f-13">
+                   <span class="text-danger">*Please Provide a valid Password</span>
+            </div>
+    </div>
+    <br><br>
+    <form [formGroup]= "eventForm">
+        <div>
+            <div>
+                <input formControlName = "email" type="text" placeholder="Email" [ngClass]="{
+                  'form-control': true,
+                  'invalid-input-feedback' : (eventForm.get('email').touched || eventForm.get('email').dirty) && eventForm.get('email').errors
+                }">
+            </div>
+            <div *ngIf="(eventForm.get('email').touched || eventForm.get('email').dirty) && eventForm.get('email').errors" class="invalid-feedback f-f-r f-13">
+              <span class="text-danger">*Please Provide a valid Email</span>
+            </div>
+            <br><br>
+            <div> 
+            <select formControlName = "subscriptions" class="form-control">
+                <option>Basic</option>
+                <option>Advance</option>
+                <option>Pro</option>
+              </select>
+              </div> 
+              <br><br>
+            <div>
+                <input formControlName= "password" type="password" placeholder="Password"
+                [ngClass]="{
+                    'form-control': true,
+                    'invalid-input-feedback' : (eventForm.get('password').touched || eventForm.get('password').dirty) && eventForm.get('password').errors
+                  }"/>
+                <div *ngIf="(eventForm.get('password').touched || eventForm.get('password').dirty) && eventForm.get('password').errors" class="invalid-feedback f-f-r f-13">
+                    <span class="text-danger">*Please Provide a valid Password</span>
+                </div>
+            </div>
+            <br><br>
+            <div>
+                <button (click) = "submit()" class="btn btn-primary btn-lg">Submit</button>
+                <button (click) = "clear()" class="btn btn-primary btn-lg clear">Clear</button>
+            </div>
+          </div>
+          
+      </form>    
+</div>

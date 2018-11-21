@@ -6,7 +6,7 @@ import { MessageComponent } from './message/message.component';
 const routes: Routes = [
   { path: '', redirectTo: '/form', pathMatch: 'full' },
   { path: 'form', component: FormComponent },
-  { path: 'message', component: MessageComponent }
+  { path: 'message/:email', component: MessageComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
