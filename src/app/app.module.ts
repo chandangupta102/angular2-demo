@@ -7,6 +7,7 @@ import { FormComponent } from './form/form.component';
 import { MessageComponent } from './message/message.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
